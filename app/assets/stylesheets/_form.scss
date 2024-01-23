@@ -1,0 +1,11 @@
+input[type="email"], input[type="text"], input[type="password"] {
+    background-color: #fafafa;
+    border-radius: 1px;
+
+    &:focus {
+        background-color: #fafafa;
+        border: 0;
+        border-radius: 0;
+        font-size: small;
+    }
+}
