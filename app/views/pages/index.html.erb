@@ -1,49 +1,7 @@
-<div class="instagram-sign-up">
-<div class="vh-100 d-flex justify-content-center align-items-center">
-    <div>
-        <div class="card insta-card py-4 mb-3 " style="width:23rem">
-            <div class="card-body">
-                <div class="instagram-logo-link justify-content-center"></div>
-                <%# <p class="text-center fw-medium text-secondary">Sign up to see photos and videos from your friends.</p> %>
+<% if user_signed_in?%>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete%>
+<%end%>
 
-                <div class="d-flex justify-content-center py-4">
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <div class="mb-3">
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-control", placeholder: "Phone, number or username"%>
-                    </div>
-
-                    <div class="mb-3">
-                        <%= f.password_field :password, autocomplete: "current-password" , class:"form-control",placeholder: "Password"%>
-                    </div>
-
-                    <% if devise_mapping.rememberable? %>
-                        <div class="form-check mb-3">
-                        <%= f.check_box :remember_me, class:"form-check-input" %>
-                        <%= f.label :remember_me, class:"form-check-label" %>
-                        </div>
-                    <% end %>
-
-                    <div class="actions">
-                        <%= f.submit "Log in", class:"btn btn-primary insta-button w-100" %>
-                    </div>
-                    <% end %>
-                </div>
-                
-            </div>
-            <hr>
-            <%= link_to "Forgot password?", new_password_path(resource_name), class:"text-center insta-small-link"%><br/>
-        </div>
-
-        <div class="card insta-card mb-0" style="width:23rem">
-            <div class="card-body">
-                <p class="text-center fs-6">Don`t have an account? <%=link_to "Sign up", new_user_registration_path, class:"insta-link"%></p>
-            </div>
-        </div>
-
-    </div>
+<div>
+<h1>Index page</h1>
 </div>
-
-</div>
-
-
-
