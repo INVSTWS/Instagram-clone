@@ -1,0 +1,18 @@
+<!-- Modal -->
+<div class="modal fade" id="new-post-modal" tabindex="-1" aria-labelledby="new-post-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title fs-5" id="new-post-modal">Create New Post</h1>
+      </div>
+      <div class="modal-body" style="margin-right:auto; margin-left:auto">
+        <%= image_tag("instagram-create-img.png", width:96, class:"ms-5")%>
+        <p>Drag photos and videos here</p>
+        <%= form_with model: Post.new, data: {controller: "new-post-form"} do |f|%>
+          <%= link_to "Select from computer", "", data: {action: "click->new-post-form#selectFile"}, class:"ms-4 btn btn-primary", style: "padding: 5px 5px 5px 5px"%>
+          <%= f.file_field :photo, data: {"new-post-form-target": "photoFile", action: "change-> new-post-form#submitForm"}, class:"d-none"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

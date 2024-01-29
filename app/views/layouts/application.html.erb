@@ -11,6 +11,42 @@
   </head>
 
   <body>
-    <%= yield %>
+
+      <div class="row d-flex justify-content-between">
+    <div class="col">
+        <div class="p-4">
+            <div>
+                <%= image_tag("instagram-sidebar.png", width: 103)%>
+            </div>
+        </div>
+        <div class="ms-4">
+            <%= link_to "", data: { "bs-toggle" => "modal", "bs-target" => "#new-post-modal" }, class:"insta-sidebar" do %>
+                <%= image_tag("icons/instagram-add-icon.png", width:25, class: "me-4")%>   
+                create
+            <%end%>
+
+            <div class="mt-2">
+              <% if user_signed_in?%>
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:"btn btn-primary"%>
+              <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 text-center">
+        <div class="p-4">
+            <div>
+                  <%= yield %>
+            </div> 
+        </div>  
+    </div>
+    <div class="col">
+        <div class="p-4">
+            <div>
+                <%= image_tag("instagram-sidebar.png", width: 103)%>
+            </div> 
+        </div>  
+    </div>
+    <%= render 'posts/modal' %>
+
   </body>
 </html>
