@@ -1,7 +1,7 @@
-
+<h1>IndexPage</h1>
 
 <%= Post.find_each do |post|%>
     <% if post.photo.attached?%>
-        <%=image_tag(post.photo , style:"width:300px", data:{controller: "photo-cropper"})%>
+        <%=image_tag(post.photo , style:"width:300px", data:{"photo-croppper-target": "image"})%>
     <%end%>
-<% end %>
+<%end%>

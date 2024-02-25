@@ -8,11 +8,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <script src="https://cdn.jsdelivr.net/gh/silvia-odwyer/pixels.js/dist/Pixels.js"></script>
   </head>
 
   <body>
-
-      <div class="row d-flex justify-content-between">
+  <% if user_signed_in?%>
+    <div class="row d-flex justify-content-between">
     <div class="col">
         <div class="p-4">
             <div>
@@ -47,6 +49,8 @@
         </div>  
     </div>
     <%= render 'posts/modal' %>
-
+    <%else%>
+      <%=yield%>
+  <%end%>
   </body>
 </html>

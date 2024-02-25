@@ -1,0 +1,17 @@
+<div data-controller="photo-cropper">
+
+
+    <% if @post.photo.attached?%>
+        <%= image_tag @post.photo , data: {"photo-cropper-target": "image"} %>
+    <%end%>
+
+
+    <%= form_with model: @post, data:{"photo-cropper-target": "form"} do |f|%>
+        <%= f.hidden_field :x_offset, data:{"photo-cropper-target": "xOffset"}%>
+        <%= f.hidden_field :y_offset, data:{"photo-cropper-target": "yOffset"}%>
+        <%= f.hidden_field :height, data:{"photo-cropper-target": "height"}%>
+        <%= f.hidden_field :width, data:{"photo-cropper-target": "width"}%>
+        <%= f.hidden_field :status, value: "applying_filter"%>
+        <%= f.submit "Crop picture", class: "btn btn-primary mt-2"%>
+    <%end%>
+</div>
